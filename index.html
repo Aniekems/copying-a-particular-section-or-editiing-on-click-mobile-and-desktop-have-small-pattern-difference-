@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content='width=device-width,initial-scale=1.0'>
+        <style>
+            div.container {
+                margin-left: 45%;
+                width: 45vw;
+                background-color: azure;
+                padding: 20px;
+                margin-bottom: 45px;
+                position: relative;
+            }
+            .icon {
+                position: absolute;
+                  right: 2px;         /* Distance from right – puts it in the corner */ 
+                cursor: pointer;
+                display: flex;
+                gap: 15px;
+                justify-content: flex-end;
+                padding: 5px 8px 5px 8px;
+                background-color: white;
+                
+            }
+            * {
+  -webkit-tap-highlight-color: transparent; /* or rgba(0,0,0,0) */
+}
+
+            i {
+                font-size: 22px;
+            }
+            
+            .fancy {
+                position: fixed;
+                bottom: 20px;
+                border-radius: 10px;
+                left: 50%;
+                background-color: black;
+                color: white;
+                padding: 7px;
+            }
+            .fancySecond {
+                position: fixed;
+                border-radius: 10px;
+                background-color: black;
+                color: white;
+                padding: 7px;
+            }
+            
+                div.flex {
+                    display: none;
+                    justify-content: flex-end;
+                    gap: 15px;
+                    margin-right: 14px;
+                }
+
+                div.first {
+                    background-color: lightgray;
+                    padding: 8px 15px 8px 15px;
+                    border-radius: 7px;
+                    cursor: pointer;
+                    font-weight: bold;
+                }
+
+                div.second {
+                    background-color: grey;
+                    color: white;
+                    padding: 8px 15px 8px 15px;
+                    border-radius: 7px;
+                    cursor: pointer;
+                    font-weight: bold;
+                }
+
+
+        
+
+        </style>
+        <script src="https://kit.fontawesome.com/1fc3ebbd76.js" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <div class="container">
+            <p> When compound interest is used in real life
+Compound interest is used in:
+Savings accounts
+Fixed deposits
+Investments (stocks, crypto, mutual funds)
+Loans (this is why debts grow fast)
+Simple interest is mostly used for:
+Short-term loans
+Informal agreements
+Some basic calculations
+8️⃣ Key takeaway important
+₦1331 = compound interest (correct for compounding)
+₦1300 = simple interest
+The formula you used is mathematically and financially correct
+If you want, I can next show you how to:        
+Show monthly compounding
+Explain why banks feel like “cheating” with interest
+Or tie this directly to OPay OWealth / savings apps
+Just tell me 👍</p>
+<div class="flex">
+    <div class="first">Cancel</div>
+    <div class="second">Submit</div>
+</div>
+        </div>
+        <div class="container">
+           <p> The light blue background overlay that briefly appears on clickable elements (like buttons, links, or divs) when tapped or clicked—especially on mobile devices or touchscreens—and then quickly fades away is commonly known as the tap highlight or touch highlight.It's a default browser feature in WebKit-based browsers (like Chrome, Safari, and mobile Android/iOS browsers) to provide visual feedback, confirming that your tap was registered. The technical CSS property because it can clash with custom designs.If this happens on desktop (e.g., quick clicks in Chrome), it's the same feature triggered in certain modes.If it's a radial expanding/fading circle (often gray or colored), that might be a custom Material Design ripple effect instead, which many apps/frameworks add intentionally for feedback. But based on "light blue background" covering the element and "quickly goes out," it sounds like the standard tap highlight.
+66 web pages
+</p>
+<div class="flex">
+    <div class="first">Cancel</div>
+    <div class="second">Submit</div>
+</div>
+        </div>
+        <script>
+        
+            const divs = document.querySelectorAll('div.container');
+
+            divs.forEach((div) => {
+                let divIco;
+            let iFirstNot;
+            let hold = true;
+            let hold2 = true;
+            let flexDiv = div.querySelector('div.flex');
+            let divFirst = div.querySelector('div.first');
+            let divSecond = div.querySelector('div.second');
+            divIco = document.createElement('div');
+            divIco.innerHTML = '<i class="fa-regular fa-copy"> </i> <i class="fa-solid fa-pencil"></i>';
+            divIco.classList.add('icon');
+            divIco.style.top = (div.clientHeight) + 'px';
+          
+            div.append(divIco);
+
+            const iFirst = divIco.querySelector('i.fa-copy');
+            const iSecond = divIco.querySelector('i.fa-pencil');
+            const iThird = document.createElement('i');
+            iThird.innerHTML = '<i class="fa-solid fa-check"></i>';  // Function to toggle icons based on window width
+            iSecond.addEventListener('click', () => {
+                
+                    /*
+                    const divFirst = div.querySelector('div.first');
+                    const divSecond = div.querySelector('div.second');
+                    divFirst.addEventListener('click', () => {
+                        divIco.style.display = 'flex';
+                    });
+                    divSecond.addEventListener('click', () => {
+                        divIco.style.display = 'flex';
+                    });
+                    */
+                
+                if (iFirstNot) {
+                    iFirstNot.remove();
+                }
+                const existing = document.querySelector('.fancySecond');
+                if (existing) {
+                    existing.remove();
+                }
+                div.contentEditable = true;
+                div.style.outline = 'none';
+            
+                const p = div.querySelector('p');
+                const textNode = p.firstChild;
+                if (textNode && textNode.nodeType === Node.TEXT_NODE) {
+                    const text = textNode.textContent;
+                    const trimmedLength = text.trimEnd().length;
+                    const range = document.createRange();
+                    range.setStart(textNode, trimmedLength);
+                    range.setEnd(textNode, trimmedLength);
+                    const selection = window.getSelection();
+                    selection.removeAllRanges();
+                    selection.addRange(range);
+                } else {
+                    const range = document.createRange();
+                    range.selectNodeContents(div);
+                    range.collapse(false);
+                    const selection = window.getSelection();
+                    selection.removeAllRanges();
+                    selection.addRange(range);
+                }
+                
+              
+               flexDiv.style.display = 'flex';
+               divIco.style.top = (div.clientHeight) + 'px';
+
+               divFirst.addEventListener('click', () => {
+                div.contentEditable = false;
+                flexDiv.style.display = 'none';
+                divIco.style.top = (div.clientHeight) + 'px';
+                if (window.innerWidth <= 600) {
+                    divIco.style.display = 'flex';
+                }
+               });
+                divSecond.addEventListener('click', () => {
+                 div.contentEditable = false;
+                 flexDiv.style.display = 'none';
+                 divIco.style.top = (div.clientHeight) + 'px';
+                    if (window.innerWidth <= 600) {
+                        divIco.style.display = 'flex';
+                }
+                });
+                if (window.innerWidth <= 600) {
+                    divIco.style.display = 'none';
+                }
+            });
+            div.addEventListener('mouseenter', () => {
+                if (window.innerWidth > 600 && flexDiv.style.display !== 'flex') {
+                    divIco.style.display = 'flex';
+                    divIco.style.marginRight = '14px';
+                }
+            });
+            
+            divIco.addEventListener('mouseenter', () => {
+                if (window.innerWidth > 600) {
+                    divIco.style.display = 'flex';
+                }
+            });
+            
+            div.addEventListener('mouseleave', () => {
+                if (window.innerWidth > 600) {
+                    divIco.style.display = 'none';
+                }
+            });
+            divIco.addEventListener('mouseleave', () => {
+                if (window.innerWidth > 600) {
+                    divIco.style.display = 'none';
+                }
+            });
+        function toggleIcons() {
+            divIco.style.top = (div.clientHeight) + 'px';
+            if (window.innerWidth > 600) {
+            if (!div.tooltipsAdded) {
+                    iFirst.addEventListener('mouseenter', (e) => {
+                        if (hold) {
+                    let iFirstPos = iFirst.getBoundingClientRect();
+                    iFirstNot = document.createElement('div');
+                    iFirstNot.innerHTML = 'Copy';
+                    iFirstNot.classList.add('fancySecond');
+                    iFirstNot.style.top = (iFirstPos.bottom + 5) + 'px';
+                    iFirstNot.style.left = (iFirstPos.left) + 'px'; 
+                    document.body.append(iFirstNot);
+                    hold = false;
+                    }
+                    })
+
+                    iFirst.addEventListener('mouseleave', (e) => {
+                        iFirstNot.remove();
+                        hold = true;
+                    })
+                    iSecond.addEventListener('mouseenter', (e) => {
+                        if (hold2) {
+                        let iSecondPos = iSecond.getBoundingClientRect();
+                        const iSecondNot = document.createElement('div');
+                        iSecondNot.innerHTML = 'Edit';
+                        iSecondNot.classList.add('fancySecond');
+                        iSecondNot.style.top = (iSecondPos.bottom + 5) + 'px';
+                        iSecondNot.style.left = (iSecondPos.left) + 'px';
+                        document.body.append(iSecondNot);
+                        hold2 = false;
+                        }
+                    });
+                    iSecond.addEventListener('mouseleave', (e) => {
+                        hold2 = true;
+                        const existing = document.querySelector('.fancySecond');
+
+                        if (existing) {
+                            existing.remove();
+                        }
+                    });
+                    div.tooltipsAdded = true;
+                }
+                
+                divIco.style.display = 'none';
+                divIco.style.marginRight = '94px';
+            } else {
+                divIco.style.display = 'flex'; // Or whatever default display is
+                divIco.style.marginRight = '3px';
+                
+            }
+         
+        }
+
+        // Initial check on load
+        toggleIcons();
+
+        // Add resize listener to update on window resize
+        window.addEventListener('resize', toggleIcons);
+        window.addEventListener('resize', () => {
+            if (flexDiv.style.display === 'flex' && window.innerWidth <= 600) {
+                divIco.style.display = 'none';
+            }
+        
+        });
+
+
+
+            iFirst.addEventListener('click', () => {
+                iFirst.replaceWith(iThird);
+                const codeTextContent = div.textContent;
+                navigator.clipboard.writeText(codeTextContent).then(() => {
+                    if (window.innerWidth <= 600) {
+                    if (iFirstNot) {
+                        iFirstNot.remove();
+                    }
+                    const copyMessage = document.createElement('div');
+                    copyMessage.innerHTML = 'Copied';
+                    copyMessage.classList.add('fancy');
+            
+                    document.body.append(copyMessage);
+                    setTimeout(() => {
+                        copyMessage.remove();
+                        iThird.replaceWith(iFirst);
+                        
+                    }, 1500);
+                    
+                } else {
+                    if (iFirstNot) {
+                        iFirstNot.remove();
+                    }
+                    setTimeout(() => {
+                        iThird.replaceWith(iFirst);
+                    }, 1500);
+                } 
+                });
+
+               
+                
+
+            });
+            
+                
+            });
+
+      
+        </script>
+    </body>
+</html>
+
