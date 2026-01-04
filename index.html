@@ -72,6 +72,13 @@
                     font-weight: bold;
                 }
 
+                @media (max-width: 600px) {
+                    body  {
+                        margin-right: 14px;
+                        
+                    }
+                }
+
 
         
 
@@ -137,17 +144,6 @@ Just tell me 👍</p>
             const iThird = document.createElement('i');
             iThird.innerHTML = '<i class="fa-solid fa-check"></i>';  // Function to toggle icons based on window width
             iSecond.addEventListener('click', () => {
-                
-                    /*
-                    const divFirst = div.querySelector('div.first');
-                    const divSecond = div.querySelector('div.second');
-                    divFirst.addEventListener('click', () => {
-                        divIco.style.display = 'flex';
-                    });
-                    divSecond.addEventListener('click', () => {
-                        divIco.style.display = 'flex';
-                    });
-                    */
                 
                 if (iFirstNot) {
                     iFirstNot.remove();
@@ -299,16 +295,8 @@ Just tell me 👍</p>
                 const codeTextContent = div.textContent;
                 navigator.clipboard.writeText(codeTextContent).then(() => {
                     if (window.innerWidth <= 600) {
-                    if (iFirstNot) {
-                        iFirstNot.remove();
-                    }
-                    const copyMessage = document.createElement('div');
-                    copyMessage.innerHTML = 'Copied';
-                    copyMessage.classList.add('fancy');
-            
-                    document.body.append(copyMessage);
+                    
                     setTimeout(() => {
-                        copyMessage.remove();
                         iThird.replaceWith(iFirst);
                         
                     }, 1500);
